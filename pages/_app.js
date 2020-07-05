@@ -10,7 +10,7 @@ class AppWrapper extends App{
   componentDidMount(){
     //initialized firebase configs
     // addToHomescreen();
-    register();
+    register('/service-worker.js');
 
   }
 

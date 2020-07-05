@@ -12,7 +12,7 @@ app.prepare()
     createServer((req, res) => {
       const parsedUrl = parse(req.url, true)
       const { pathname } = parsedUrl
-      
+      console.log('pathname : ', pathname);
       const rootPaths = ['/firebase-messaging-sw.js', '/manifest.json']
       for(rootPath of rootPaths) {
         if ( pathname === rootPath ) {
@@ -23,7 +23,9 @@ app.prepare()
       }
 
       if (pathname === '/service-worker.js') {
-        const filePath = join(__dirname, '/../.next', pathname)
+        console.log('serve')
+        const filePath = join(__dirname, '../.next', pathname)
+        console.log('filePath : ', filePath)
         app.serveStatic(req, res, filePath)
       } else {
         handle(req, res, parsedUrl)
